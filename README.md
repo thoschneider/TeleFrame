@@ -50,7 +50,7 @@ Note that you will need to install the lastest full version of Raspbian, **don't
 Execute the following command on your Raspberry Pi to install TeleFrame:
 
 ```bash
-bash -c "$(curl -sL https://raw.githubusercontent.com/LukeSkywalker92/TeleFrame/master/tools/install_raspberry.sh)"
+bash -c "$(curl -sL https://raw.githubusercontent.com/thoschneider/TeleFrame/master/tools/install_raspberry.sh)"
 ```
 
 ### Manual Installation
