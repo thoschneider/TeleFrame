@@ -98,7 +98,7 @@ if $NODE_INSTALL; then
 	# The NODE_STABLE_BRANCH variable will need to be manually adjusted when a new branch is released. (e.g. 7.x)
 	# Only tested (stable) versions are recommended as newer versions could break TeleFrame.
 
-	NODE_STABLE_BRANCH="10.x"
+	NODE_STABLE_BRANCH="14.x"
 	curl -sL https://deb.nodesource.com/setup_$NODE_STABLE_BRANCH | sudo -E bash -
 	sudo apt-get install -y nodejs
 	echo -e "\e[92mNode.js installation Done!\e[0m"
@@ -117,7 +117,7 @@ if [ -d "$HOME/TeleFrame" ] ; then
 fi
 
 echo -e "\e[96mCloning TeleFrame ...\e[90m"
-if git clone --depth=1 https://github.com/LukeSkywalker92/TeleFrame.git; then
+if git clone --depth=1 https://github.com/thoschneider/TeleFrame.git; then
 	echo -e "\e[92mCloning TeleFrame Done!\e[0m"
 else
 	echo -e "\e[91mUnable to clone TeleFrame."
@@ -194,7 +194,7 @@ fi
 # Use pm2 control like a service TeleFrame
 if [[ $pmchoice =~ ^[Yy]$ ]]; then
     sudo npm install -g pm2
-    sudo su -c "env PATH=$PATH:/usr/bin pm2 startup systemd -u pi --hp /home/pi"
+    sudo su -c "env PATH=$PATH:/usr/bin pm2 startup systemd -u $USER --hp /home/$USER"
 		if [[ $pmchoiceInternet =~ ^[Yy]$ ]]; then
     	pm2 start ~/TeleFrame/tools/pm2_TeleFrame_waitForInternet.json
 		else
